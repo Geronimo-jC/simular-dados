@@ -33,8 +33,6 @@ const lanzarDados = (cantidad)=>{
 
 const generarTabla = (cantidad)=>{
     const objeto = lanzarDados(cantidad)
-
-    console.log(objeto.apariciones)
     console.table(objeto)
 }
 
