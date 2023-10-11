@@ -38,5 +38,5 @@ const generarTabla = (cantidad)=>{
 
 let nmr = parseInt(prompt('Ingrese la cantidad de lanzamientos'))
 
-generarTabla(nmr)
+generarTabla(4)
 
