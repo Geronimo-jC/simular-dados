@@ -33,12 +33,10 @@ const lanzarDados = (cantidad)=>{
 
 const generarTabla = (cantidad)=>{
     const objeto = lanzarDados(cantidad)
-
-    console.log(objeto.apariciones)
     console.table(objeto)
 }
 
 let nmr = parseInt(prompt('Ingrese la cantidad de lanzamientos'))
 
-generarTabla(nmr)
+generarTabla(4)
 
