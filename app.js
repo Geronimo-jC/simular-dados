@@ -4,39 +4,32 @@ const nmrRandom =()=>{
 
 const lanzarDosDados = ()=>{
     let dados = [nmrRandom(),nmrRandom()];
-    return dados;
+    let suma = dados[1]+dados[0]
+    return suma
 }
 
-const contarRepeticiones = (lista)=>{
-    return lista.reduce((c,e)=>{
-        c[e] = (c[e] || 0)+1;
-        return c
-    },{})
+const objeto = {
+    suma:0,
+    aparicion:0
 }
 
-const lanzarDados = (cantidad)=>{
-    const objeto = {
-        suma: [],
-        lazamientos:[],
-        apariciones:[]
-    }
-
-    for(let i=0;i<cantidad;i++){
-        let dados = lanzarDosDados()
-        objeto.suma.push(dados[0]+dados[1])
-        objeto.lazamientos.push(dados)
-    }
-
-    objeto.apariciones = contarRepeticiones(objeto.suma)
-    return objeto
-}
-
-const generarTabla = (cantidad)=>{
-    const objeto = lanzarDados(cantidad)
-    console.table(objeto)
-}
+const array = new Array(11).fill(null).map((_,i)=>{
+    return Object.assign({}, objeto,{suma: i+2})
+})
 
 let nmr = parseInt(prompt('Ingrese la cantidad de lanzamientos'))
 
-generarTabla(nmr)
+const tiradas = new Array(nmr).fill(null).map(lanzarDosDados)
+
+const main=()=>{
+    tiradas.forEach(t=>{
+        const resultados = array.find(e=> e.suma === t)
+        if(resultados){
+            resultados.aparicion++
+        }
+    })
+    console.table(array)
+}
+
+main()
 
